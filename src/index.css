@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme {
+  --font-impact: Impact, Haettenschweiler, Arial Narrow Bold, sans-serif;
+  --font-trebuchet: "Trebuchet MS", Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;
+  --color-y2k-purple: #8a2be2;
+  --color-y2k-pink: #ff00ff;
+  --color-y2k-silver: #c0c0c0;
+  --color-y2k-dark: #1a0033;
+}
+
+body {
+  background: radial-gradient(circle at center, #4a0080 0%, #000000 100%);
+  color: white;
+  min-height: 100vh;
+  font-family: 'Trebuchet MS', sans-serif;
+  margin: 0;
+  background-attachment: fixed;
+}
+
+/* Y2K Metallic Panel */
+.y2k-panel {
+  background: linear-gradient(to bottom, #f0f0f0 0%, #a0a0a0 50%, #808080 51%, #c0c0c0 100%);
+  border: 4px outset #e0e0e0;
+  color: black;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.8);
+  border-radius: 8px;
+}
+
+.y2k-panel-inner {
+  background: white;
+  border: 3px inset #a0a0a0;
+  padding: 10px;
+}
+
+/* Y2K Button */
+.y2k-btn {
+  background: linear-gradient(to bottom, #d0d0d0 0%, #909090 100%);
+  border: 3px outset #d0d0d0;
+  font-family: Impact, sans-serif;
+  text-transform: uppercase;
+  color: #333;
+  cursor: pointer;
+  text-shadow: 1px 1px 0px white;
+}
+
+.y2k-btn:active {
+  border-style: inset;
+  background: linear-gradient(to bottom, #909090 0%, #d0d0d0 100%);
+}
+
+.y2k-btn-purple {
+  background: linear-gradient(to bottom, #d8b4fe 0%, #9333ea 100%);
+  border: 3px outset #d8b4fe;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+.y2k-btn-purple:active {
+  border-style: inset;
+  background: linear-gradient(to bottom, #9333ea 0%, #d8b4fe 100%);
+}
+
+/* Glowing Text */
+.y2k-glow {
+  text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #8a2be2;
+}
+
+.y2k-title {
+  font-family: Impact, sans-serif;
+  background: linear-gradient(to bottom, #ffffff 0%, #ffccff 50%, #ff00ff 51%, #6600cc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(2px 2px 0px #ffffff) drop-shadow(4px 4px 5px rgba(0,0,0,0.8));
+  letter-spacing: 2px;
+}
+
+/* Y2K Input */
+.y2k-input {
+  background: #fff;
+  border: 3px inset #a0a0a0;
+  color: #000;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+.y2k-input:focus {
+  outline: none;
+  background: #ffe6ff;
+}
+
+.outset-border {
+  border-style: outset;
+}
+.inset-border {
+  border-style: inset;
+}
+
+@keyframes grain-jitter {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(-1%, 1%); }
+  66% { transform: translate(1%, -1%); }
+}
+
+.y2k-grain-container {
+  position: relative;
+}
+
+.y2k-grain-container::after {
+  content: "";
+  position: absolute;
+  inset: -10%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  animation: grain-jitter 0.2s steps(2) infinite;
+  z-index: 20;
+  clip-path: inset(10%);
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Y2K Test Site",
+  "description": "A Y2K themed test site by K043GAR with Discord webhook submission.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
