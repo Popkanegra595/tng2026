@@ -26,7 +26,7 @@ const WavyText = ({ text, className, style }: { text: string, className?: string
   );
 };
 
-const ExplosionEffect = ({ size }: { size: 'mini' | 'huge' }) => {
+const ExplosionEffect: React.FC<{ size: 'mini' | 'huge' }> = ({ size }) => {
   const isHuge = size === 'huge';
   const particleCount = isHuge ? 150 : 30;
   const colors = ['#ff0000', '#ffaa00', '#ffff00', '#ffffff', '#ff00ff', '#00ffff'];
@@ -117,59 +117,59 @@ const QUESTIONS: Question[] = [
   // ==================== БЛОК 1: ТЕСТОВЫЕ ВОПРОСЫ (1-5) ====================
   {
     id: 1,
-    text: "Вопрос 1: сосал?",
+    text: "Вопрос 1: Выбери правильный вариант",
     type: 'multiple-choice',
-    options: ['да', 'нет', 'товим ртом'],
+    options: ['Ответ 1', 'Ответ 2', 'Ответ 3'],
   },
   {
     id: 2,
-    text: "Вопрос 2: когда ебали что на жопе написали?",
+    text: "Вопрос 2: Выбери правильный вариант",
     type: 'multiple-choice',
-    options: ['хуй', 'шлюха', 'моя жопа не тетрдаь и нехуй на ней писать'],
+    options: ['Ответ 1', 'Ответ 2', 'Ответ 3'],
   },
   {
     id: 3,
-    text: "Вопрос 3: тебе кинули веник и сказали сыграть твои дейстивия?",
+    text: "Вопрос 3: Выбери правильный вариант",
     type: 'multiple-choice',
-    options: ['скаазть чтобы настроили и кинуть обратно', 'показать член', 'начать играть песню педофила восьмикласница'],
+    options: ['Ответ 1', 'Ответ 2', 'Ответ 3'],
   },
   {
     id: 4,
-    text: "Вопрос 4: кого слушают дети с аутизмом",
+    text: "Вопрос 4: Выбери правильный вариант",
     type: 'multiple-choice',
-    options: ['меня', 'цоя', 'моргенштерна'],
+    options: ['Ответ 1', 'Ответ 2', 'Ответ 3'],
   },
   {
     id: 5,
-    text: "Вопрос 5: кого слушают крутые богачи с бесконечными робуксоми?",
+    text: "Вопрос 5: Выбери правильный вариант",
     type: 'multiple-choice',
-    options: ['цой', 'моргенштерн', 'deatriq'],
+    options: ['Ответ 1', 'Ответ 2', 'Ответ 3'],
   },
 
   // ==================== БЛОК 2: ОТКРЫТЫЕ ВОПРОСЫ (6-10) ====================
   {
     id: 6,
-    text: "Вопрос 6: какой пол ванм нравится? обоснуйте",
+    text: "Вопрос 6: Введи свой ответ",
     type: 'text',
   },
   {
     id: 7,
-    text: "Вопрос 7: сколько часов у вас в доте 2?",
+    text: "Вопрос 7: Введи свой ответ",
     type: 'text',
   },
   {
     id: 8,
-    text: "Вопрос 8: какая лучшая актриса в ру сегменте кинемотогрофа? обуснуйте",
+    text: "Вопрос 8: Введи свой ответ",
     type: 'text',
   },
   {
     id: 9,
-    text: "Вопрос 9: в какой одежде вы ходите под дому?",
+    text: "Вопрос 9: Введи свой ответ",
     type: 'text',
   },
   {
     id: 10,
-    text: "Вопрос 10: вы голый? обснуйте",
+    text: "Вопрос 10: Введи свой ответ",
     type: 'text',
   },
 
@@ -398,7 +398,7 @@ export default function App() {
     const opt = {
       margin:       0.5,
       filename:     'k043gar_test_results.pdf',
-      image:        { type: 'jpeg', quality: 0.98 },
+      image:        { type: 'jpeg' as const, quality: 0.98 },
       html2canvas:  { scale: 2 },
       jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
     };
